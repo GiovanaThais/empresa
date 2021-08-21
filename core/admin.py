@@ -7,11 +7,11 @@ from .models import Requisito
 class EmpresaAdmin(admin.ModelAdmin):
     list_display = ['nome_fantasia','cnpj','email']
 
-@admin.register(Requisito)
+@admin.register(Vaga)
 class VagaAdmin(admin.ModelAdmin):
     list_display = ['titulo','descricao','salario','status','tipo_contrato','empresa']
 
-@admin.register(Vaga)
+@admin.register(Requisito)
 class RequisitoAdmin(admin.ModelAdmin):
-    list_display = ['vaga','descricao']
+    list_display = ['descricao']
 # Register your models here.
