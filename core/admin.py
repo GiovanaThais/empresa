@@ -13,5 +13,5 @@ class VagaAdmin(admin.ModelAdmin):
 
 @admin.register(Requisito)
 class RequisitoAdmin(admin.ModelAdmin):
-    list_display = ['descricao']
+    list_display = ['descricao','vaga']
 # Register your models here.

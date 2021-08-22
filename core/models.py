@@ -10,6 +10,7 @@ class Empresa(models.Model):
     nome_fantasia = models.CharField(null=False, max_length=50)
     cnpj = models.CharField(null=False, max_length=20)
     email = models.EmailField(null=False)
+    
     def __str__(self):
         return str(self.nome_fantasia)
 
