@@ -1,7 +1,9 @@
 from django.shortcuts import render
-from rest_framework import generics, viewsets, SearchFilter
+from rest_framework import generics
+from rest_framework import filters
+from rest_framework.filters import SearchFilter
 from core.models import Vaga,Empresa,Requisito
-from serializers import VagaSerializer, EmpresaSerializer, RequisitoSerializer
+from api_empresa.serializers import VagaSerializer, EmpresaSerializer, RequisitoSerializer
 
 class VagaAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Vaga.objects.all()
