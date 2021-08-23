@@ -5,13 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>EmpresaList</title>
+    <style>
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        a.three:link, a:visited {
+        background-color: #0ca7ce;
+        color: white;
+        padding: 14px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        }
+
+        a.three:hover, a:active {background-color: rgb(55, 174, 221);}
+        a.four:link, a:visited {
+        background-color: #0ca7ce;
+        color: white;
+        padding: 14px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        }
+
+        a.four:hover, a:active {background-color: rgb(34, 116, 148);}
+        
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+        
+        #customers tr:hover {background-color: #ddd;}
+        
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #008b8b;
+            color: white;
+        }
+
+        a.one:link, a.one:visited {
+        background-color: #f44336;
+        color: white;
+        padding: 14px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        }
+        a.one:hover, a.one:active { background-color: red;}
+        
+        a.two:link {color:#003cff;}
+        a.two:visited {color:#05152c;}
+        a.two:hover {font-family:monospace;}
+    </style>
 </head>
 <body>
+    <table id="customers">
+        <tr>
+        <th>ID</th>
+        <th>Nome Fantasia</th>
+        <th>Cnpj</th>
+        <th>Email</th>
+        <th>Ação</th>
+        </tr>
     {% for empresa in object_list %}
-        <p>{{empresa.nome_fantasia}} </p>
-        <p> {{empresa.cnpj}} </p>
-        <p> {{empresa.email}}</p>
-        <br>
+        <tr>
+            <td>
+                <b><a class="two" href="{% url 'empresa_update' empresa.id %}" target="_blank">{{empresa.id}}</a></b>
+            </td>
+        <td>{{empresa.nome_fantasia}} </td>
+        <td> {{empresa.cnpj}} </td>
+        <td> {{empresa.email}}</td>
+        <td>
+            <a class="four" href="/createVaga/"  target="_blank">Cadastrar Vaga</a>
+            <a class="one" href="{% url 'empresa_delete' empresa.id %}" target="_blank">Deletar</a>
+        </td>
+        </tr><br>
     {% endfor %}
+    <a class="three" href="/createEmpresa/" target="_blank">Cadastrar Nova Empresa</a>
 </body>
 </html>
