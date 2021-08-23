@@ -14,13 +14,13 @@ class EmpresaList(ListView):
 class EmpresaCreate(CreateView):
     model = Empresa
     queryset = Empresa.objects.all()
-    fields = ['nome','id','cnpj','email']
+    fields = ['nome_fantasia','id','cnpj','email']
     success_url = reverse_lazy('empresa_list')
 
 class EmpresaUpdate(UpdateView):
     model = Empresa
     queryset = Empresa.objects.all()
-    fields = ['nome','id','cnpj','email']
+    fields = ['nome_fantasia','id','cnpj','email']
     success_url = reverse_lazy('empresa_list')
 
 class EmpresaDelete(DeleteView):

@@ -37,7 +37,10 @@ urlpatterns = [
     path('createEmpresa/',EmpresaCreate.as_view(), name='empresa_create'),
     path('updateEmpresa/<int:pk>/',EmpresaUpdate.as_view(), name = 'empresa_update'),
     path('deleteEmpresa/<int:pk>/',EmpresaDelete.as_view(), name = 'empresa_delete'),
-
+    path('listVaga/',VagaList.as_view(), name= 'vaga_list'),
+    path('createVaga/',VagaCreate.as_view(), name='vaga_create'),
+    path('updateVaga/<int:pk>/',VagaUpdate.as_view(), name = 'vaga_update'),
+    path('deleteVaga/<int:pk>/',VagaDelete.as_view(), name = 'vaga_delete'),
     #API
     path('vagas/', ListarVagasAPIView.as_view(), name='listar_vagas'),
     path('vagas/<int:pk>/', VagaAPIView.as_view(), name='listar_vagas'),
