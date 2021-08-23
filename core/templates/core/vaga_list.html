@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VagaList</title>
+</head>
+<body>
+    {% for vaga in object_list %}
+        <p>{{vaga.titulo}} </p>
+        <p>{{vaga.descricao}} </p>
+        <p>{{vaga.salario}} </p>
+        <p>{{vaga.tipo_contrato}} </p>
+        <p>{{vaga.status}} </p>
+        <p>{{vaga.empresa}} </p>
+        <br>
+    {% endfor %}
+</body>
+</html>
