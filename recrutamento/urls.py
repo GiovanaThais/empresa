@@ -15,6 +15,8 @@ Including another URLconf
 """
 from api_empresa.views import EmpresaAPIView, ListarEmpresasAPIView, ListarVagasAPIView, VagaAPIView
 from django.contrib import admin
+from core.views import EmpresaList, EmpresaCreate, EmpresaUpdate, EmpresaDelete
+from core.views import VagaList, VagaCreate, VagaDelete, VagaUpdate
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
@@ -30,6 +32,13 @@ router.register('empresas', ListarEmpresasAPIView, EmpresaAPIView)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('rest_framework.urls')),
+
+    path('listEmpresa/',EmpresaList.as_view(), name= 'empresa_list'),
+    path('createEmpresa/',EmpresaCreate.as_view(), name='empresa_create'),
+    path('updateEmpresa/<int:pk>/',EmpresaUpdate.as_view(), name = 'empresa_update'),
+    path('deleteEmpresa/<int:pk>/',EmpresaDelete.as_view(), name = 'empresa_delete'),
+
+    #API
     path('vagas/', ListarVagasAPIView.as_view(), name='listar_vagas'),
     path('vagas/<int:pk>/', VagaAPIView.as_view(), name='listar_vagas'),
     path('empresas/', ListarEmpresasAPIView.as_view(), name='listar_empresas'),
