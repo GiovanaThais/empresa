@@ -8,6 +8,9 @@
 </head>
 <body>
     {% for vaga in object_list %}
+        
+        <b><a class="two" href="{% url 'vaga_update' vaga.id %}" target="_blank">{{vaga.id}}</a></b>
+
         <p>{{vaga.titulo}} </p>
         <p>{{vaga.descricao}} </p>
         <p>{{vaga.salario}} </p>
@@ -15,6 +18,7 @@
         <p>{{vaga.status}} </p>
         <p>{{vaga.empresa}} </p>
         <br>
+        <a class="one" href="{% url 'vaga_delete' vaga.id %}" target="_blank">Deletar</a>
     {% endfor %}
 </body>
 </html>
